@@ -1,16 +1,18 @@
-const arr = [1, 10, 2, 8, 3, 15, 4, 5, 6];
+const arr = [1, 2, 10, 2, 8, 3, 15, 4, 5, 6];
+
+let newArray = [];
 
 function deletCheck(num) {
-  return num > 5;
+  return num < 6;
 }
 
-function delet(array, fn) {
+function arrFilter(array, fn) {
   for (let element in arr) {
     if (fn(array[element])) {
-      array.splice(element, 1);
+      newArray = [...newArray, array[element]];
     }
   }
 }
 
-delet(arr, deletCheck);
-console.log(arr);
+arrFilter(arr, deletCheck);
+console.log(newArray);
