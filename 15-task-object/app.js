@@ -14,11 +14,9 @@ const ToDoList = {
     });
   },
   deletTask: function (id) {
-    const itemToDelet = this.tasks
-      .map((item) => {
-        return item.id;
-      })
-      .indexOf(id);
+    const itemToDelet = this.tasks.findIndex((item) => {
+      return item.id === id;
+    });
     if (itemToDelet != -1) {
       this.tasks.splice(itemToDelet, 1);
     } else {
@@ -26,11 +24,9 @@ const ToDoList = {
     }
   },
   newTaskName: function (id, name) {
-    const changeName = this.tasks
-      .map(function (item) {
-        return item.id;
-      })
-      .indexOf(id);
+    const changeName = this.tasks.findIndex((item) => {
+      return item.id === id;
+    });
     if (changeName != -1) {
       this.tasks[changeName].title = name;
     } else {
